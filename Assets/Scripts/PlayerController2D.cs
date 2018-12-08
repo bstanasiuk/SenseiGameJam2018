@@ -24,6 +24,7 @@ public class PlayerController2D : MonoBehaviour
 	private Vector3 m_Velocity = Vector3.zero;
 	public int health;
 
+
 	[Header("Events")]
 	[Space]
 
@@ -162,4 +163,5 @@ public class PlayerController2D : MonoBehaviour
 		Debug.Log("damage Taken!");
 		hitSound.Play();
 	}
+	
 }
