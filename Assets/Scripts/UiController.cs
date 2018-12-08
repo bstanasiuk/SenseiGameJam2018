@@ -8,6 +8,9 @@ public class UiController : MonoBehaviour
     [SerializeField] private Sprite[] _firstPlayerScoreSprites;
     [SerializeField] private Image _secondPlayerScoreImage;
     [SerializeField] private Sprite[] _secondPlayerScoreSprites;
+    [SerializeField] private Image _playerDiedImage;
+    [SerializeField] private Sprite _whitePlayerDiedSprite;
+    [SerializeField] private Sprite _blackPlayerDiedSprite;
     private int _firstPlayerScore;
     private int _secondPlayerScore;
     public static UiController Instance { get; private set; }
@@ -42,12 +45,16 @@ public class UiController : MonoBehaviour
     {
         _firstPlayerScore++;
         _firstPlayerScoreImage.sprite = _firstPlayerScoreSprites[_firstPlayerScore];
+        _playerDiedImage.gameObject.SetActive(true);
+        _playerDiedImage.sprite = _whitePlayerDiedSprite;
     }
 
     public void AddPointForSecondPlayer()
     {
         _secondPlayerScore++;
         _secondPlayerScoreImage.sprite = _secondPlayerScoreSprites[_secondPlayerScore];
+        _playerDiedImage.gameObject.SetActive(true);
+        _playerDiedImage.sprite = _blackPlayerDiedSprite;
     }
 
     public void SetRemainingBackgroundTimeText(int remainingSeconds)
