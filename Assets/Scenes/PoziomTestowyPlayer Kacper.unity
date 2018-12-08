@@ -188,6 +188,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &42879850 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1993494750222036, guid: d2007d089abc050428323d39be441c52,
+    type: 2}
+  m_PrefabInternal: {fileID: 664529792}
 --- !u!1 &74070841
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,6 +619,11 @@ Prefab:
     - {fileID: 23832701487832484, guid: 034675ec1206fe448aba246f8d2ca8d5, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 034675ec1206fe448aba246f8d2ca8d5, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &564410119 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1298929311146682, guid: d2007d089abc050428323d39be441c52,
+    type: 2}
+  m_PrefabInternal: {fileID: 664529792}
 --- !u!1 &572165590
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,6 +776,28 @@ Prefab:
     - target: {fileID: 4017740583204446, guid: d2007d089abc050428323d39be441c52, type: 2}
       propertyPath: m_RootOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1298929311146682, guid: d2007d089abc050428323d39be441c52, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114228939807823734, guid: d2007d089abc050428323d39be441c52,
+        type: 2}
+      propertyPath: lewyWhoosh
+      value: 
+      objectReference: {fileID: 1912934680}
+    - target: {fileID: 114228939807823734, guid: d2007d089abc050428323d39be441c52,
+        type: 2}
+      propertyPath: prawyWhoosh
+      value: 
+      objectReference: {fileID: 42879850}
+    - target: {fileID: 4017740583204446, guid: d2007d089abc050428323d39be441c52, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017740583204446, guid: d2007d089abc050428323d39be441c52, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2007d089abc050428323d39be441c52, type: 2}
@@ -1516,6 +1548,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1448387003254192, guid: 54fb7e49bc7237945a7e123e77bd427e, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4611309956479794, guid: 54fb7e49bc7237945a7e123e77bd427e, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4611309956479794, guid: 54fb7e49bc7237945a7e123e77bd427e, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54fb7e49bc7237945a7e123e77bd427e, type: 2}
   m_IsPrefabAsset: 0
@@ -2225,6 +2269,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1912934680 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1117357453882598, guid: d2007d089abc050428323d39be441c52,
+    type: 2}
+  m_PrefabInternal: {fileID: 664529792}
 --- !u!1 &1916406958
 GameObject:
   m_ObjectHideFlags: 0
@@ -2312,7 +2361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eeb68307e12a01459831309ad4faf26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player0: {fileID: 0}
+  player0: {fileID: 564410119}
   player1: {fileID: 1253697959}
   platformy: {fileID: 572165590}
   UICanvas: {fileID: 93793180}
