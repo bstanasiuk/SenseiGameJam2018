@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		//jesli bedziemy chcieli crouch to zmieniami false na crouch
 		//jesli wlaczymy kucanie to trzeba naprawic buga ze skakaniem (wylaczenie collidera)
-		controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
+		controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
 		jump = false;
 	}
 
