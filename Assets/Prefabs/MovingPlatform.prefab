@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4278550201541558}
   - component: {fileID: 114413380081783266}
   m_Layer: 0
-  m_Name: New Prefab
+  m_Name: MovingPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
