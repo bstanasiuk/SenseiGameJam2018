@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
 	public PlayerController2D controller;
 	[SerializeField] private bool Player2 = false;
-	public Rigidbody2D rb;
+	private Rigidbody2D rb;
 	
 	float horizontalMove = 0f;
 	public float runSpeed = 40f;
@@ -17,15 +17,16 @@ public class PlayerMovement : MonoBehaviour
 	
 	private float timeBtwAttack;
 	public float startTimeBtwAttack;
-	public float attackRangeX;
+	/*public float attackRangeX;
 	public float attackRangeY;
-	public Transform attackPos;
+	public Transform attackPos;*/
 	/*public LayerMask whoIsEnemy;
 	public int damage;*/
-    public float dissapearWhoosh = 0.75f;
+    /*public float dissapearWhoosh = 0.75f;
 
     public GameObject lewyWhoosh;
     public GameObject prawyWhoosh;
+*/
 
 	public AudioSource attackSound;
 	//public AudioSource stepsSound;
@@ -45,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
             if (controller.m_Grounded == true)
                 rb.gravityScale = 3;
 
-            if (lewyWhoosh.activeSelf)
+            /*if (lewyWhoosh.activeSelf)
             {
                 Invoke("WhooshDissapear", dissapearWhoosh);
             }
@@ -53,21 +54,21 @@ public class PlayerMovement : MonoBehaviour
             if (prawyWhoosh.activeSelf)
             {
                 Invoke("WhooshDissapear", dissapearWhoosh);
-            }
+            }*/
         }
 		else
 		{
 			InputResponePlayer2();
 			if(controller.m_Grounded == true)
 				rb.gravityScale = 3;
-            if (lewyWhoosh.activeSelf)
+            /*if (lewyWhoosh.activeSelf)
             {
                 Invoke("WhooshDissapear", dissapearWhoosh);
             }
             if (prawyWhoosh.activeSelf)
             {
                 Invoke("WhooshDissapear", dissapearWhoosh);
-            }
+            }*/
         }
 
 	}
@@ -80,19 +81,19 @@ public class PlayerMovement : MonoBehaviour
 		jump = false;
 	}
 
-	void OnDrawGizmosSelected()
+	/*void OnDrawGizmosSelected()
 	{
 		Gizmos.color = new Color(1, 0, 0, 1);	
 		Gizmos.DrawWireCube(attackPos.position, new Vector3(attackRangeX, attackRangeY, 1));
-	}
+	}*/
 
-    void WhooshDissapear()
+    /*void WhooshDissapear()
     {
         lewyWhoosh.SetActive(false);
         prawyWhoosh.SetActive(false);
-    }
+    }*/
 
-    void WhooshDisplay()
+    /*void WhooshDisplay()
     {
         if (controller.m_FacingRight)
         {
@@ -102,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
         {
             lewyWhoosh.SetActive(true);
         }
-    }
+    }*/
 
 	void InputResponsePlayer1()
 	{
@@ -124,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
 		{
 			if (Input.GetButtonDown("Fire1"))
 			{
-                WhooshDisplay();
+               // WhooshDisplay();
 
 			    _animationsController.PlayAttackAnimation();
                 attackSound.Play();
@@ -142,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
 			{
 				if (Input.GetButtonDown("Fire2"))
 				{
-                    WhooshDisplay();
+                    //WhooshDisplay();
 
                     _animationsController.PlayAttackAnimation();
                     rb.gravityScale = 1000;
@@ -184,7 +185,7 @@ public class PlayerMovement : MonoBehaviour
 		{
 			if (Input.GetButtonDown("Fire1_2"))
 			{
-                WhooshDisplay();
+                //WhooshDisplay();
 
                 attackSound.Play();
 				/*Collider2D[] enemyToDamage = Physics2D.OverlapBoxAll(attackPos.position,
@@ -201,7 +202,7 @@ public class PlayerMovement : MonoBehaviour
 			{
 				if (Input.GetButtonDown("Fire2_2"))
 				{
-                    WhooshDisplay();
+                   //WhooshDisplay();
 
                     _animationsController.PlayAttackAnimation();
                     rb.gravityScale = 1000;

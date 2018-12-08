@@ -41,12 +41,14 @@ public class AnimationController : MonoBehaviour {
             hitSound.Play();
             BloodDisplay();
             UiController.Instance.AddPointForSecondPlayer();
+            
         }
         else if (_isBlack && other.gameObject.tag.Equals("WhitePlayer"))
         {
             hitSound.Play();
             BloodDisplay();
             UiController.Instance.AddPointForFirstPlayer();
+            
         }
     }
 
