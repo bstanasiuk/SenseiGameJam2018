@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 	public Transform attackPos;
 	public LayerMask whoIsEnemy;
 	public int damage;
-    public float dissapearWhoosh;
+    public float dissapearWhoosh = 0.75f;
 
     public GameObject lewyWhoosh;
     public GameObject prawyWhoosh;
