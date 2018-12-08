@@ -1,24 +1,83 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class BackgroundController : MonoBehaviour
 {
+    [SerializeField] private Image _backgroundImage;
+    [SerializeField] private Sprite _whiteSprite;
+    [SerializeField] private Sprite[] _possibleBackground;
+    [SerializeField] private Sprite[] _reverseBackground;
+    private int _selectedBackgroundIndex;
     [SerializeField] private RectTransform _backgroundPiecePrefab;
-    [Range(0, 12)]
-    [SerializeField] private int _boardScale = 1;
-    private int _boardScaleOldValue;
-    private Vector2 _oldResolution;
+    private List<Image> _chessBoardPiecesImages = new List<Image>();
+    private bool _isReversed;
+    [SerializeField] private float _reverseBackgroundProbability = 0.5f;
+    [SerializeField] private float _chessBackgroundProbability = 0.5f;
 
     private void Start()
     {
-        _boardScaleOldValue = _boardScale;
-        _oldResolution = new Vector2(Screen.width, Screen.height);
-        CreateBackgroundPieces();
+        _backgroundImage.sprite = _possibleBackground[2];
+        InvokeRepeating("CreateBackground", 1, 1f);
     }
 
-    private void CreateBackgroundPieces()
+    private void CreateBackground()
     {
-        if (_boardScale == 0) return;
-        var pieceLength = Screen.width / _boardScale;
+        _backgroundImage.color = Color.white;
+        if (Random.Range(0f, 1f) > _reverseBackgroundProbability)
+            CreateLayout();
+        else
+        {
+            ReverseColors();
+        }
+    }
+
+    private void ReverseColors()
+    {
+        if (_chessBoardPiecesImages.Count > 0)
+        {
+            ReverseChessBoardColors();
+        }
+        else
+        {
+            ReverseBackgroundImageLayout();
+        }
+        _isReversed = !_isReversed;
+    }
+
+    private void CreateLayout()
+    {
+        if (Random.Range(0f, 1f) > _chessBackgroundProbability)
+        {
+            CreateBackgroundImageLayout();
+        }
+        else
+        {
+            CreateChessLayout();
+        }
+        _isReversed = false;
+    }
+
+    private void CreateBackgroundImageLayout()
+    {
+        DeleteChessBoardPieces();
+        _selectedBackgroundIndex = Random.Range(0, _possibleBackground.Length);
+        _backgroundImage.sprite = _possibleBackground[_selectedBackgroundIndex];
+    }
+
+    private void ReverseBackgroundImageLayout()
+    {
+        _backgroundImage.sprite = _isReversed ? _possibleBackground[_selectedBackgroundIndex] : _reverseBackground[_selectedBackgroundIndex];
+    }
+
+    private void CreateChessLayout()
+    {
+        DeleteChessBoardPieces();
+        _backgroundImage.sprite = _whiteSprite;
+        _backgroundImage.color = new Color(1,1,1,1);
+        var boardScale = Random.Range(0, 12);
+        if (boardScale == 0) return;
+        var pieceLength = Screen.width / boardScale;
         var numberOfRows = Screen.height / pieceLength;
         for (var j = 0; j <= numberOfRows * 2 + 1; j++)
         {
@@ -28,12 +87,14 @@ public class BackgroundController : MonoBehaviour
                 var backgroundPiece = Instantiate(_backgroundPiecePrefab, transform, false);
                 backgroundPiece.anchoredPosition = new Vector2(i, j * pieceLength + pieceLength / 2);
                 backgroundPiece.sizeDelta = new Vector2(pieceLength, pieceLength);
+                _chessBoardPiecesImages.Add(backgroundPiece.GetComponent<Image>());
             }
             for (var i = offset + -pieceLength * 1.5f; i + pieceLength * 2 > -Screen.width * 2; i -= pieceLength * 2)
             {
                 var backgroundPiece = Instantiate(_backgroundPiecePrefab, transform, false);
                 backgroundPiece.anchoredPosition = new Vector2(i, j * pieceLength + pieceLength / 2);
                 backgroundPiece.sizeDelta = new Vector2(pieceLength, pieceLength);
+                _chessBoardPiecesImages.Add(backgroundPiece.GetComponent<Image>());
             }
             offset = j % 2 == 0 ? 0 : pieceLength;
             for (var i = offset + pieceLength / 2; i - pieceLength * 2 < Screen.width * 2; i += pieceLength * 2)
@@ -41,27 +102,33 @@ public class BackgroundController : MonoBehaviour
                 var backgroundPiece = Instantiate(_backgroundPiecePrefab, transform, false);
                 backgroundPiece.anchoredPosition = new Vector2(i, -j * pieceLength - pieceLength / 2);
                 backgroundPiece.sizeDelta = new Vector2(pieceLength, pieceLength);
+                _chessBoardPiecesImages.Add(backgroundPiece.GetComponent<Image>());
             }
-            for (var i = offset + -pieceLength * 1.5f; i + pieceLength * 2 > -Screen.width* 2; i -= pieceLength * 2)
+            for (var i = offset + -pieceLength * 1.5f; i + pieceLength * 2 > -Screen.width * 2; i -= pieceLength * 2)
             {
                 var backgroundPiece = Instantiate(_backgroundPiecePrefab, transform, false);
                 backgroundPiece.anchoredPosition = new Vector2(i, -j * pieceLength - pieceLength / 2);
                 backgroundPiece.sizeDelta = new Vector2(pieceLength, pieceLength);
+                _chessBoardPiecesImages.Add(backgroundPiece.GetComponent<Image>());
             }
         }
     }
 
-    private void Update()
+    private void ReverseChessBoardColors()
     {
-        if (_boardScaleOldValue != _boardScale || _oldResolution.x != Screen.width || _oldResolution.y != Screen.height)
+        _backgroundImage.color = !_isReversed ? Color.black : Color.white;
+        foreach (var chessBoardPiecesImage in _chessBoardPiecesImages)
         {
-            foreach (Transform child in transform)
-            {
-                Destroy(child.gameObject);
-            }
-            CreateBackgroundPieces();
-            _boardScaleOldValue = _boardScale;
-            _oldResolution = new Vector2(Screen.width, Screen.height);
+            chessBoardPiecesImage.color = !_isReversed ? Color.white : Color.black;
         }
+    }
+
+    private void DeleteChessBoardPieces()
+    {
+        foreach (var chessBoardPiecesImage in _chessBoardPiecesImages)
+        {
+            Destroy(chessBoardPiecesImage.gameObject);
+        }
+        _chessBoardPiecesImages = new List<Image>();
     }
 }
