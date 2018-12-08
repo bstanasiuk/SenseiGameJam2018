@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UiController : MonoBehaviour
@@ -14,9 +15,11 @@ public class UiController : MonoBehaviour
     private int _firstPlayerScore;
     private int _secondPlayerScore;
     public static UiController Instance { get; private set; }
+    private bool _alreadyScored = false;
 
     private void Awake()
     {
+        Time.timeScale = 1f;
         InitializeSingletonInstance();
     }
 
@@ -28,7 +31,10 @@ public class UiController : MonoBehaviour
 
     private void Update()
     {
-        //if (_playerDiedImage.gameObject.activeInHierarchy)
+        if (_playerDiedImage.gameObject.activeInHierarchy && Input.GetKeyDown("space"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     private void InitializeSingletonInstance()
@@ -41,8 +47,10 @@ public class UiController : MonoBehaviour
 
     private void LoadScores()
     {
-        _firstPlayerScoreImage.sprite = _firstPlayerScoreSprites[PlayerPrefs.GetInt("BlackPlayerScore", 0)];
-        _secondPlayerScoreImage.sprite = _secondPlayerScoreSprites[PlayerPrefs.GetInt("WhitePlayerScore", 0)];
+        _firstPlayerScore = PlayerPrefs.GetInt("BlackPlayerScore", 0);
+        _secondPlayerScore = PlayerPrefs.GetInt("WhitePlayerScore", 0);
+        _firstPlayerScoreImage.sprite = _firstPlayerScoreSprites[_firstPlayerScore];
+        _secondPlayerScoreImage.sprite = _secondPlayerScoreSprites[_secondPlayerScore];
     }
 
     private void SetScoresToZero()
@@ -51,28 +59,40 @@ public class UiController : MonoBehaviour
         _secondPlayerScore = 0;
         PlayerPrefs.SetFloat("BlackPlayerScore", _firstPlayerScore);
         PlayerPrefs.SetFloat("WhitePlayerScore", _secondPlayerScore);
-        _firstPlayerScoreImage.sprite = _firstPlayerScoreSprites[_firstPlayerScore];
-        _secondPlayerScoreImage.sprite = _secondPlayerScoreSprites[_secondPlayerScore];
     }
 
     public void AddPointForFirstPlayer()
     {
-        Time.timeScale = 0f;
+        if (_alreadyScored) return;
+        Invoke("DelayedStopTime", 0.3f);
         _firstPlayerScore++;
         PlayerPrefs.SetInt("BlackPlayerScore", _firstPlayerScore);
         _firstPlayerScoreImage.sprite = _firstPlayerScoreSprites[_firstPlayerScore];
         _playerDiedImage.gameObject.SetActive(true);
         _playerDiedImage.sprite = _whitePlayerDiedSprite;
+        _alreadyScored = true;
+        if (_firstPlayerScore >= 3) 
+            SetScoresToZero();
+
     }
 
     public void AddPointForSecondPlayer()
     {
-        Time.timeScale = 0f;
+        if (_alreadyScored) return;
+        Invoke("DelayedStopTime", 0.3f);
         _secondPlayerScore++;
         PlayerPrefs.SetInt("WhitePlayerScore", _secondPlayerScore);
         _secondPlayerScoreImage.sprite = _secondPlayerScoreSprites[_secondPlayerScore];
         _playerDiedImage.gameObject.SetActive(true);
         _playerDiedImage.sprite = _blackPlayerDiedSprite;
+        _alreadyScored = true;
+        if (_secondPlayerScore >= 3)
+            SetScoresToZero();
+    }
+
+    private void DelayedStopTime()
+    {
+        Time.timeScale = 0f;
     }
 
     public void SetRemainingBackgroundTimeText(int remainingSeconds)
