@@ -14,11 +14,12 @@ public class BackgroundController : MonoBehaviour
     private bool _isReversed;
     [SerializeField] private float _reverseBackgroundProbability = 0.5f;
     [SerializeField] private float _chessBackgroundProbability = 0.5f;
+    [SerializeField] private float _changeTime = 5f;
 
     private void Start()
     {
         _backgroundImage.sprite = _possibleBackground[2];
-        InvokeRepeating("CreateBackground", 1, 1f);
+        InvokeRepeating("CreateBackground", 5, 5f);
     }
 
     private void CreateBackground()
