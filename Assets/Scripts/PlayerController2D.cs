@@ -11,7 +11,10 @@ public class PlayerController2D : MonoBehaviour
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
 	[SerializeField] private Collider2D m_CrouchDisableCollider;				// A collider that will be disabled when crouching
+	
     public AudioSource jumpSound; //Dodałem tutaj bo nie wiedziałem gdzie. Sorki jeśli coś jest nie tak. ~Kacper
+	public AudioSource hitSound;
+	//public AudioSource stepsSound;
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
@@ -19,6 +22,7 @@ public class PlayerController2D : MonoBehaviour
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
+	public int health;
 
 	[Header("Events")]
 	[Space]
@@ -145,5 +149,12 @@ public class PlayerController2D : MonoBehaviour
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
+	}
+
+	public void TakeDamage(int damage)
+	{
+		health -= damage;
+		Debug.Log("damage Taken!");
+		hitSound.Play();
 	}
 }
