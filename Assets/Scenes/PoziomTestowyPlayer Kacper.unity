@@ -1104,7 +1104,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2fee16cb889ad43c39f036791a4316a5, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.75
   m_Pitch: 1
   Loop: 1
@@ -1725,11 +1725,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4443049954527848, guid: 2cae36869342f01498a57727e3130cbd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.31
+      value: -10.26
       objectReference: {fileID: 0}
     - target: {fileID: 4443049954527848, guid: 2cae36869342f01498a57727e3130cbd, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.89
+      value: -4.8
       objectReference: {fileID: 0}
     - target: {fileID: 4443049954527848, guid: 2cae36869342f01498a57727e3130cbd, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1788,11 +1788,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4443049954527848, guid: 2cae36869342f01498a57727e3130cbd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -5.36
+      value: 12.7
       objectReference: {fileID: 0}
     - target: {fileID: 4443049954527848, guid: 2cae36869342f01498a57727e3130cbd, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -7.15
+      value: -5.47
       objectReference: {fileID: 0}
     - target: {fileID: 4443049954527848, guid: 2cae36869342f01498a57727e3130cbd, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1847,7 +1847,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1572988991732362, guid: 2cae36869342f01498a57727e3130cbd, type: 2}
       propertyPath: m_Name
-      value: Player0
+      value: Player2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cae36869342f01498a57727e3130cbd, type: 2}
@@ -2390,6 +2390,7 @@ MonoBehaviour:
   UICanvas: {fileID: 833848690}
   playmodeCanvas: {fileID: 269172402}
   startingScreen: {fileID: 1916406958}
+  bgMusic: {fileID: 1013533307}
 --- !u!1 &2020507959
 GameObject:
   m_ObjectHideFlags: 0
