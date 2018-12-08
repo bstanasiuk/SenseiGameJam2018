@@ -11,6 +11,7 @@ public class AnimationController : MonoBehaviour {
     private Vector2 _lastPosition;
     
     public AudioSource hitSound;
+    public GameObject blood;
 
     private void Awake()
     {
@@ -38,11 +39,13 @@ public class AnimationController : MonoBehaviour {
         if (!_isBlack && other.gameObject.tag.Equals("BlackPlayer"))
         {
             hitSound.Play();
+            BloodDisplay();
             UiController.Instance.AddPointForSecondPlayer();
         }
         else if (_isBlack && other.gameObject.tag.Equals("WhitePlayer"))
         {
             hitSound.Play();
+            BloodDisplay();
             UiController.Instance.AddPointForFirstPlayer();
         }
     }
@@ -50,5 +53,10 @@ public class AnimationController : MonoBehaviour {
     public void PlayAttackAnimation()
     {
         _playerAnimator.SetTrigger("AttackTrigger");
+    }
+
+    private void BloodDisplay()
+    {
+        blood.SetActive(true);
     }
 }
