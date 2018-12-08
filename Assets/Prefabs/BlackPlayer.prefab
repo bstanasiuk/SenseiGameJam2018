@@ -180,7 +180,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1448387003254192}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.65, y: -6.68, z: 0}
+  m_LocalPosition: {x: 13.440293, y: -6.4085627, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children:
   - {fileID: 4424255521815898}
@@ -861,6 +861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isBlack: 1
+  hitSound: {fileID: 0}
 --- !u!114 &114621860226738862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -883,7 +884,6 @@ MonoBehaviour:
   m_CeilingCheck: {fileID: 4296846679200954}
   m_CrouchDisableCollider: {fileID: 0}
   jumpSound: {fileID: 82576934238778716}
-  hitSound: {fileID: 82067846388289418}
   stepsSound: {fileID: 82590505556287060}
   landingSound: {fileID: 82901477081251438}
   m_Grounded: 0
@@ -912,17 +912,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animationsController: {fileID: 114593023492026866}
   controller: {fileID: 114621860226738862}
-  Player2: 0
+  Player2: 1
   rb: {fileID: 0}
   runSpeed: 60
   startTimeBtwAttack: 1
   attackRangeX: 2.24
   attackRangeY: 0.44
   attackPos: {fileID: 4714028182496296}
-  whoIsEnemy:
-    serializedVersion: 2
-    m_Bits: 256
-  damage: 1
   dissapearWhoosh: 0.75
   lewyWhoosh: {fileID: 1963733241902784}
   prawyWhoosh: {fileID: 1591108689742832}
