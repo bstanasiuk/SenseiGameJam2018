@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class UiController : MonoBehaviour
 {
+    [SerializeField] private Text _remainingBackgroundTimeText;
     [SerializeField] private Image _firstPlayerScoreImage;
     [SerializeField] private Sprite[] _firstPlayerScoreSprites;
     [SerializeField] private Image _secondPlayerScoreImage;
@@ -47,5 +48,10 @@ public class UiController : MonoBehaviour
     {
         _secondPlayerScore++;
         _secondPlayerScoreImage.sprite = _secondPlayerScoreSprites[_secondPlayerScore];
+    }
+
+    public void SetRemainingBackgroundTimeText(int remainingSeconds)
+    {
+        _remainingBackgroundTimeText.text = "" + remainingSeconds;
     }
 }

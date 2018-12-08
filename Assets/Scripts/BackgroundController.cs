@@ -15,15 +15,27 @@ public class BackgroundController : MonoBehaviour
     [SerializeField] private float _reverseBackgroundProbability = 0.5f;
     [SerializeField] private float _chessBackgroundProbability = 0.5f;
     [SerializeField] private float _changeTime = 5f;
+    private float _remainingBackgroundTime;
 
     private void Start()
     {
         _backgroundImage.sprite = _possibleBackground[2];
-        InvokeRepeating("CreateBackground", 5, 5f);
+        _remainingBackgroundTime = _changeTime;
+    }
+
+    private void Update()
+    {
+        _remainingBackgroundTime -= Time.deltaTime;
+        if (_remainingBackgroundTime <= 0)
+        {
+            CreateBackground();
+        }
+        UiController.Instance.SetRemainingBackgroundTimeText(Mathf.RoundToInt(_remainingBackgroundTime));
     }
 
     private void CreateBackground()
     {
+        _remainingBackgroundTime = _changeTime;
         _backgroundImage.color = Color.white;
         if (Random.Range(0f, 1f) > _reverseBackgroundProbability)
             CreateLayout();
