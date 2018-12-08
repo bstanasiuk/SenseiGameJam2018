@@ -892,7 +892,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isBlack: 0
   hitSound: {fileID: 82325180752209258}
-  blood: {fileID: 0}
+  blood: {fileID: 1135470924576994}
 --- !u!114 &114124265791067682
 MonoBehaviour:
   m_ObjectHideFlags: 1

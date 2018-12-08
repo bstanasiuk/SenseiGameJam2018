@@ -12,6 +12,9 @@ public class UiController : MonoBehaviour
     [SerializeField] private Image _playerDiedImage;
     [SerializeField] private Sprite _whitePlayerDiedSprite;
     [SerializeField] private Sprite _blackPlayerDiedSprite;
+    [SerializeField] private Image _playerWinsImage;
+    [SerializeField] private Sprite _whitePlayerWinsSprite;
+    [SerializeField] private Sprite _blackPlayerWinsSprite;
     private int _firstPlayerScore;
     private int _secondPlayerScore;
     public static UiController Instance { get; private set; }
@@ -26,15 +29,6 @@ public class UiController : MonoBehaviour
     private void Start()
     {
         LoadScores();
-        //SetScoresToZero();
-    }
-
-    private void Update()
-    {
-        if (_playerDiedImage.gameObject.activeInHierarchy && Input.GetKeyDown("space"))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
     }
 
     private void InitializeSingletonInstance()
@@ -71,9 +65,10 @@ public class UiController : MonoBehaviour
         _playerDiedImage.gameObject.SetActive(true);
         _playerDiedImage.sprite = _whitePlayerDiedSprite;
         _alreadyScored = true;
-        if (_firstPlayerScore >= 3) 
-            SetScoresToZero();
-
+        if (_firstPlayerScore >= 3)
+            BlackPlayerWins();
+        else
+            Invoke("RestartLevel", 0.5f);
     }
 
     public void AddPointForSecondPlayer()
@@ -87,12 +82,40 @@ public class UiController : MonoBehaviour
         _playerDiedImage.sprite = _blackPlayerDiedSprite;
         _alreadyScored = true;
         if (_secondPlayerScore >= 3)
-            SetScoresToZero();
+            WhitePlayerWins();
+        else
+            Invoke("RestartLevel", 0.5f);
+    }
+
+    private void BlackPlayerWins()
+    {
+        SetScoresToZero();
+        _playerWinsImage.gameObject.SetActive(true);
+        _playerDiedImage.sprite = _blackPlayerWinsSprite;
+        Invoke("LoadStartScene", 0.5f);
+    }
+
+    private void WhitePlayerWins()
+    {
+        SetScoresToZero();
+        _playerWinsImage.gameObject.SetActive(true);
+        _playerDiedImage.sprite = _whitePlayerWinsSprite;
+        Invoke("LoadStartScene", 0.5f);
+    }
+
+    private void LoadStartScene()
+    {
+        SceneManager.LoadScene("StartScene");
     }
 
     private void DelayedStopTime()
     {
-        Time.timeScale = 0f;
+        Time.timeScale = 0.25f;
+    }
+
+    private void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void SetRemainingBackgroundTimeText(int remainingSeconds)
