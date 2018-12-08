@@ -609,6 +609,14 @@ Prefab:
       propertyPath: Player2
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1117357453882598, guid: d2007d089abc050428323d39be441c52, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1993494750222036, guid: d2007d089abc050428323d39be441c52, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2007d089abc050428323d39be441c52, type: 2}
   m_IsPrefabAsset: 0
@@ -992,6 +1000,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1059989022 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1963733241902784, guid: 54fb7e49bc7237945a7e123e77bd427e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1253697958}
 --- !u!1 &1192140792
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,6 +1209,32 @@ Prefab:
       propertyPath: Player2
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1963733241902784, guid: 54fb7e49bc7237945a7e123e77bd427e, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1591108689742832, guid: 54fb7e49bc7237945a7e123e77bd427e, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717865926423638, guid: 54fb7e49bc7237945a7e123e77bd427e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 4446833490919782, guid: 54fb7e49bc7237945a7e123e77bd427e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 3.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 114831737387191762, guid: 54fb7e49bc7237945a7e123e77bd427e,
+        type: 2}
+      propertyPath: lewyWhoosh
+      value: 
+      objectReference: {fileID: 1363948840}
+    - target: {fileID: 114831737387191762, guid: 54fb7e49bc7237945a7e123e77bd427e,
+        type: 2}
+      propertyPath: prawyWhoosh
+      value: 
+      objectReference: {fileID: 1059989022}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54fb7e49bc7237945a7e123e77bd427e, type: 2}
   m_IsPrefabAsset: 0
@@ -1346,6 +1385,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4270694374723430, guid: 034675ec1206fe448aba246f8d2ca8d5,
     type: 2}
   m_PrefabInternal: {fileID: 503605044}
+--- !u!1 &1363948840 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1591108689742832, guid: 54fb7e49bc7237945a7e123e77bd427e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1253697958}
 --- !u!1 &1648373880
 GameObject:
   m_ObjectHideFlags: 0

@@ -100,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
 }
         else
         {
-            lewyWhoosh.SetActive(false);
+            lewyWhoosh.SetActive(true);
         }
     }
 
