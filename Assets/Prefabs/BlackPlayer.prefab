@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 212308669731061912}
   - component: {fileID: 95093868790221458}
   - component: {fileID: 61358616894973920}
-  - component: {fileID: 114271426966163288}
+  - component: {fileID: 114593023492026866}
   m_Layer: 0
   m_Name: Animations
   m_TagString: Untagged
@@ -849,7 +849,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114271426966163288
+--- !u!114 &114593023492026866
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -857,7 +857,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1361520092283886}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d69ed5b1ed49a8840a1be8942d9ef661, type: 3}
+  m_Script: {fileID: 11500000, guid: fc8d95a57bf0aff4f89ca63c439d4bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _isBlack: 1
@@ -910,7 +910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 024a0cd28d3ccf0498683a75370931d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animationsController: {fileID: 114271426966163288}
+  _animationsController: {fileID: 114593023492026866}
   controller: {fileID: 114621860226738862}
   Player2: 0
   rb: {fileID: 0}

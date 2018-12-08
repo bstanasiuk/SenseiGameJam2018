@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class AnimationsController : MonoBehaviour
-{
+public class AnimationController : MonoBehaviour {
+
     [SerializeField] private bool _isBlack = false;
     private Animator _playerAnimator;
 

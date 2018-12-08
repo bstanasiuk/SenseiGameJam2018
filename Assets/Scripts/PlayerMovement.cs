@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private AnimationsController _animationsController;
+    [SerializeField] private AnimationController _animationsController;
 
 	public PlayerController2D controller;
 	[SerializeField] private bool Player2 = false;
