@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private AnimationsController _animationsController;
 
 	public PlayerController2D controller;
 	[SerializeField] private bool Player2 = false;
@@ -82,7 +83,8 @@ public class PlayerMovement : MonoBehaviour
 		{
 			if (Input.GetButtonDown("Fire1"))
 			{
-				attackSound.Play();
+			    _animationsController.PlayAttackAnimation();
+                attackSound.Play();
 				Collider2D[] enemyToDamage = Physics2D.OverlapBoxAll(attackPos.position,
 					new Vector2(attackRangeX, attackRangeY), 0, whoIsEnemy);
 				for (int i = 0; i < enemyToDamage.Length; i++)
@@ -96,7 +98,8 @@ public class PlayerMovement : MonoBehaviour
 			{
 				if (Input.GetButtonDown("Fire2"))
 				{
-					rb.gravityScale = 1000;
+				    _animationsController.PlayAttackAnimation();
+                    rb.gravityScale = 1000;
 					attackSound.Play();
 					Collider2D[] enemyToDamage = Physics2D.OverlapBoxAll(attackPos.position,
 						new Vector2(attackRangeX, attackRangeY), 0, whoIsEnemy);
@@ -142,12 +145,14 @@ public class PlayerMovement : MonoBehaviour
 					enemyToDamage[i].GetComponent<PlayerController2D>().TakeDamage(damage);
 				}
 				timeBtwAttack = startTimeBtwAttack;
+                _animationsController.PlayAttackAnimation();
 			}
 			if (controller.m_Grounded == false)
 			{
 				if (Input.GetButtonDown("Fire2_2"))
 				{
-					rb.gravityScale = 1000;
+                    _animationsController.PlayAttackAnimation();
+                    rb.gravityScale = 1000;
 					attackSound.Play();
 					Collider2D[] enemyToDamage = Physics2D.OverlapBoxAll(attackPos.position,
 						new Vector2(attackRangeX, attackRangeY), 0, whoIsEnemy);
