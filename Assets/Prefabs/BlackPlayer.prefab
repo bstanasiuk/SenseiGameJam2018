@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 95093868790221458}
   - component: {fileID: 61358616894973920}
   - component: {fileID: 114593023492026866}
+  - component: {fileID: 82418890032298016}
   m_Layer: 0
   m_Name: Animations
   m_TagString: Untagged
@@ -62,7 +63,6 @@ GameObject:
   - component: {fileID: 58958939273504704}
   - component: {fileID: 82576934238778716}
   - component: {fileID: 82505472128713220}
-  - component: {fileID: 82067846388289418}
   - component: {fileID: 82590505556287060}
   - component: {fileID: 82901477081251438}
   m_Layer: 8
@@ -356,12 +356,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.96238995, y: 2.9116406}
   m_EdgeRadius: 0
---- !u!82 &82067846388289418
+--- !u!82 &82418890032298016
 AudioSource:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1448387003254192}
+  m_GameObject: {fileID: 1361520092283886}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -861,7 +861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isBlack: 1
-  hitSound: {fileID: 0}
+  hitSound: {fileID: 82418890032298016}
 --- !u!114 &114621860226738862
 MonoBehaviour:
   m_ObjectHideFlags: 1
