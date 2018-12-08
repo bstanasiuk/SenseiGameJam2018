@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
 	public int damage;
 	
 	public AudioSource attackSound;
+	//public AudioSource stepsSound;
 	
 	private void Start()
 	{
@@ -33,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
 		if (Player2 == false)
 		{
 			InputResponsePlayer1();
+			//if(controller.m_Grounded == true && controller.)
 
 		}
 		else

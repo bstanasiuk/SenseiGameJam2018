@@ -14,7 +14,7 @@ public class PlayerController2D : MonoBehaviour
 	
     public AudioSource jumpSound; //Dodałem tutaj bo nie wiedziałem gdzie. Sorki jeśli coś jest nie tak. ~Kacper
 	public AudioSource hitSound;
-	//public AudioSource stepsSound;
+	public AudioSource stepsSound;
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
@@ -115,6 +115,11 @@ public class PlayerController2D : MonoBehaviour
 			Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
 			// And then smoothing it out and applying it to the character
 			m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+
+			if (m_Grounded == true && move != 0 && stepsSound.isPlaying == false)
+			{
+				stepsSound.Play();
+			}
 
 			// If the input is moving the player right and the player is facing left...
 			if (move > 0 && !m_FacingRight)
