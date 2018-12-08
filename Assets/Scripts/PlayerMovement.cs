@@ -20,8 +20,8 @@ public class PlayerMovement : MonoBehaviour
 	public float attackRangeX;
 	public float attackRangeY;
 	public Transform attackPos;
-	public LayerMask whoIsEnemy;
-	public int damage;
+	/*public LayerMask whoIsEnemy;
+	public int damage;*/
     public float dissapearWhoosh = 0.75f;
 
     public GameObject lewyWhoosh;
@@ -128,12 +128,12 @@ public class PlayerMovement : MonoBehaviour
 
 			    _animationsController.PlayAttackAnimation();
                 attackSound.Play();
-				Collider2D[] enemyToDamage = Physics2D.OverlapBoxAll(attackPos.position,
-					new Vector2(attackRangeX, attackRangeY), 0, whoIsEnemy);
-				for (int i = 0; i < enemyToDamage.Length; i++)
+				/*Collider2D[] enemyToDamage = Physics2D.OverlapBoxAll(attackPos.position,
+					new Vector2(attackRangeX, attackRangeY), 0, whoIsEnemy);*/
+				/*for (int i = 0; i < enemyToDamage.Length; i++)
 				{
 					enemyToDamage[i].GetComponent<PlayerController2D>().TakeDamage(damage);
-				}
+				}*/
 				timeBtwAttack = startTimeBtwAttack;
 
 			}
@@ -147,12 +147,12 @@ public class PlayerMovement : MonoBehaviour
                     _animationsController.PlayAttackAnimation();
                     rb.gravityScale = 1000;
 					attackSound.Play();
-					Collider2D[] enemyToDamage = Physics2D.OverlapBoxAll(attackPos.position,
-						new Vector2(attackRangeX, attackRangeY), 0, whoIsEnemy);
-					for (int i = 0; i < enemyToDamage.Length; i++)
+					/*Collider2D[] enemyToDamage = Physics2D.OverlapBoxAll(attackPos.position,
+						new Vector2(attackRangeX, attackRangeY), 0, whoIsEnemy);*/
+					/*for (int i = 0; i < enemyToDamage.Length; i++)
 					{
 						enemyToDamage[i].GetComponent<PlayerController2D>().TakeDamage(damage);
-					}
+					}*/
 
                 }
 			}
@@ -187,12 +187,12 @@ public class PlayerMovement : MonoBehaviour
                 WhooshDisplay();
 
                 attackSound.Play();
-				Collider2D[] enemyToDamage = Physics2D.OverlapBoxAll(attackPos.position,
-					new Vector2(attackRangeX, attackRangeY), 0, whoIsEnemy);
-				for (int i = 0; i < enemyToDamage.Length; i++)
+				/*Collider2D[] enemyToDamage = Physics2D.OverlapBoxAll(attackPos.position,
+					new Vector2(attackRangeX, attackRangeY), 0, whoIsEnemy);*/
+				/*for (int i = 0; i < enemyToDamage.Length; i++)
 				{
 					enemyToDamage[i].GetComponent<PlayerController2D>().TakeDamage(damage);
-				}
+				}*/
 				timeBtwAttack = startTimeBtwAttack;
                 _animationsController.PlayAttackAnimation();
 
@@ -206,12 +206,12 @@ public class PlayerMovement : MonoBehaviour
                     _animationsController.PlayAttackAnimation();
                     rb.gravityScale = 1000;
 					attackSound.Play();
-					Collider2D[] enemyToDamage = Physics2D.OverlapBoxAll(attackPos.position,
-						new Vector2(attackRangeX, attackRangeY), 0, whoIsEnemy);
-					for (int i = 0; i < enemyToDamage.Length; i++)
+					/*Collider2D[] enemyToDamage = Physics2D.OverlapBoxAll(attackPos.position,
+						new Vector2(attackRangeX, attackRangeY), 0, whoIsEnemy);*/
+					/*for (int i = 0; i < enemyToDamage.Length; i++)
 					{
 						enemyToDamage[i].GetComponent<PlayerController2D>().TakeDamage(damage);
-					}
+					}*/
                     
                 }
 			}

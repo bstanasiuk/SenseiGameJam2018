@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 95145701873594648}
   - component: {fileID: 61520798905615828}
   - component: {fileID: 114046679682168770}
+  - component: {fileID: 82325180752209258}
   m_Layer: 0
   m_Name: Animations
   m_TagString: Untagged
@@ -78,7 +79,6 @@ GameObject:
   - component: {fileID: 58964771393096588}
   - component: {fileID: 82125591608857760}
   - component: {fileID: 82304604010359232}
-  - component: {fileID: 82225181805385930}
   - component: {fileID: 82921231748703996}
   - component: {fileID: 82076006808330878}
   m_Layer: 8
@@ -141,7 +141,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1298929311146682}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.13, y: -6.68, z: 0}
+  m_LocalPosition: {x: -13.34, y: -7.03, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children:
   - {fileID: 4075559530285206}
@@ -546,7 +546,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &82225181805385930
+--- !u!82 &82304604010359232
 AudioSource:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -555,7 +555,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1a1ca2a10ab13384f9174766c74ae6b5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 392754d437a924d40907b5028a4750d7, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.2
   m_Pitch: 1
@@ -641,16 +641,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &82304604010359232
+--- !u!82 &82325180752209258
 AudioSource:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1298929311146682}
+  m_GameObject: {fileID: 1143661641945202}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 392754d437a924d40907b5028a4750d7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1a1ca2a10ab13384f9174766c74ae6b5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.2
   m_Pitch: 1
@@ -861,6 +861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isBlack: 0
+  hitSound: {fileID: 82325180752209258}
 --- !u!114 &114124265791067682
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -883,7 +884,6 @@ MonoBehaviour:
   m_CeilingCheck: {fileID: 4710893807873646}
   m_CrouchDisableCollider: {fileID: 0}
   jumpSound: {fileID: 82125591608857760}
-  hitSound: {fileID: 82225181805385930}
   stepsSound: {fileID: 82921231748703996}
   landingSound: {fileID: 82076006808330878}
   m_Grounded: 0
@@ -912,7 +912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animationsController: {fileID: 114046679682168770}
   controller: {fileID: 114124265791067682}
-  Player2: 1
+  Player2: 0
   rb: {fileID: 0}
   runSpeed: 60
   startTimeBtwAttack: 1

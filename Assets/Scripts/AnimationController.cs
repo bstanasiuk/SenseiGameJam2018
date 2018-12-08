@@ -8,6 +8,8 @@ public class AnimationController : MonoBehaviour {
     private Animator _playerAnimator;
 
     private Vector2 _lastPosition;
+    
+    public AudioSource hitSound;
 
     private void Awake()
     {
@@ -31,9 +33,15 @@ public class AnimationController : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!_isBlack && other.gameObject.tag.Equals("BlackPlayer"))
+        {
+            hitSound.Play();
             UiController.Instance.AddPointForSecondPlayer();
+        }
         else if (_isBlack && other.gameObject.tag.Equals("WhitePlayer"))
+        {
+            hitSound.Play();
             UiController.Instance.AddPointForFirstPlayer();
+        }
     }
 
     public void PlayAttackAnimation()

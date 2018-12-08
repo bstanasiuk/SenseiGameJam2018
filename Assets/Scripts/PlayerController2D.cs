@@ -13,7 +13,7 @@ public class PlayerController2D : MonoBehaviour
 	[SerializeField] private Collider2D m_CrouchDisableCollider;				// A collider that will be disabled when crouching
 	
     public AudioSource jumpSound; //Dodałem tutaj bo nie wiedziałem gdzie. Sorki jeśli coś jest nie tak. ~Kacper
-	public AudioSource hitSound;
+	//public AudioSource hitSound;
 	public AudioSource stepsSound;
 	public AudioSource landingSound;
 
@@ -166,11 +166,11 @@ public class PlayerController2D : MonoBehaviour
 		transform.localScale = theScale;
 	}
 
-	public void TakeDamage(int damage)
+	/*public void TakeDamage(int damage)
 	{
 		health -= damage;
-		Debug.Log("damage Taken!");
-		hitSound.Play();
-	}
+		//Debug.Log("damage Taken!");
+		//hitSound.Play();
+	}*/
 	
 }
