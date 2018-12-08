@@ -83,9 +83,9 @@ public class PlayerMovement : MonoBehaviour
 				{
 					enemyToDamage[i].GetComponent<PlayerController2D>().TakeDamage(damage);
 				}
-				
+				timeBtwAttack = startTimeBtwAttack;	
 			}
-			timeBtwAttack = startTimeBtwAttack;
+			
 		}
 		else
 		{
@@ -120,9 +120,8 @@ public class PlayerMovement : MonoBehaviour
 				{
 					enemyToDamage[i].GetComponent<PlayerController2D>().TakeDamage(damage);
 				}
-				
+				timeBtwAttack = startTimeBtwAttack;
 			}
-			timeBtwAttack = startTimeBtwAttack;
 		}
 		else
 		{
