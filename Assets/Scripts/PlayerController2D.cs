@@ -18,7 +18,7 @@ public class PlayerController2D : MonoBehaviour
 	public AudioSource landingSound;
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
-	private bool m_Grounded;            // Whether or not the player is grounded.
+	public bool m_Grounded;            // Whether or not the player is grounded.
 	private bool m_GroundedLastFrame = false;
 	const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
 	private Rigidbody2D m_Rigidbody2D;

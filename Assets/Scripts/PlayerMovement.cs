@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 
 	public PlayerController2D controller;
 	[SerializeField] private bool Player2 = false;
+	public Rigidbody2D rb;
 	
 	float horizontalMove = 0f;
 	public float runSpeed = 40f;
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
 	private void Start()
 	{
 		Physics2D.IgnoreLayerCollision(8, 8);
+		rb = GetComponent<Rigidbody2D>();
 	}
 
 	void Update ()
@@ -34,12 +36,14 @@ public class PlayerMovement : MonoBehaviour
 		if (Player2 == false)
 		{
 			InputResponsePlayer1();
-			//if(controller.m_Grounded == true && controller.)
-
+			if(controller.m_Grounded == true)
+				rb.gravityScale = 3;
 		}
 		else
 		{
 			InputResponePlayer2();
+			if(controller.m_Grounded == true)
+				rb.gravityScale = 3;
 		}
 
 	}
@@ -87,7 +91,22 @@ public class PlayerMovement : MonoBehaviour
 				}
 				timeBtwAttack = startTimeBtwAttack;	
 			}
-			
+
+			if (controller.m_Grounded == false)
+			{
+				if (Input.GetButtonDown("Fire2"))
+				{
+					rb.gravityScale = 1000;
+					attackSound.Play();
+					Collider2D[] enemyToDamage = Physics2D.OverlapBoxAll(attackPos.position,
+						new Vector2(attackRangeX, attackRangeY), 0, whoIsEnemy);
+					for (int i = 0; i < enemyToDamage.Length; i++)
+					{
+						enemyToDamage[i].GetComponent<PlayerController2D>().TakeDamage(damage);
+					}
+				}
+			}
+
 		}
 		else
 		{
@@ -123,6 +142,20 @@ public class PlayerMovement : MonoBehaviour
 					enemyToDamage[i].GetComponent<PlayerController2D>().TakeDamage(damage);
 				}
 				timeBtwAttack = startTimeBtwAttack;
+			}
+			if (controller.m_Grounded == false)
+			{
+				if (Input.GetButtonDown("Fire2_2"))
+				{
+					rb.gravityScale = 1000;
+					attackSound.Play();
+					Collider2D[] enemyToDamage = Physics2D.OverlapBoxAll(attackPos.position,
+						new Vector2(attackRangeX, attackRangeY), 0, whoIsEnemy);
+					for (int i = 0; i < enemyToDamage.Length; i++)
+					{
+						enemyToDamage[i].GetComponent<PlayerController2D>().TakeDamage(damage);
+					}
+				}
 			}
 		}
 		else
