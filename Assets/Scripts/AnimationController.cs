@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,10 +17,12 @@ public class AnimationController : MonoBehaviour {
         _playerAnimator = GetComponent<Animator>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Vector2 currectPosition = transform.parent.position;
-        if (currectPosition != _lastPosition)
+        //if (currectPosition != _lastPosition)
+        var velocity = transform.parent.GetComponent<Rigidbody2D>().velocity;
+        if (Math.Abs(velocity.x) > 0.01)
         {
             _playerAnimator.SetTrigger("WalkTrigger");
         }
