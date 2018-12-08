@@ -22,7 +22,13 @@ public class UiController : MonoBehaviour
 
     private void Start()
     {
-        SetScoresToZero();
+        LoadScores();
+        //SetScoresToZero();
+    }
+
+    private void Update()
+    {
+        //if (_playerDiedImage.gameObject.activeInHierarchy)
     }
 
     private void InitializeSingletonInstance()
@@ -33,17 +39,27 @@ public class UiController : MonoBehaviour
             Instance = this;
     }
 
+    private void LoadScores()
+    {
+        _firstPlayerScoreImage.sprite = _firstPlayerScoreSprites[PlayerPrefs.GetInt("BlackPlayerScore", 0)];
+        _secondPlayerScoreImage.sprite = _secondPlayerScoreSprites[PlayerPrefs.GetInt("WhitePlayerScore", 0)];
+    }
+
     private void SetScoresToZero()
     {
         _firstPlayerScore = 0;
         _secondPlayerScore = 0;
+        PlayerPrefs.SetFloat("BlackPlayerScore", _firstPlayerScore);
+        PlayerPrefs.SetFloat("WhitePlayerScore", _secondPlayerScore);
         _firstPlayerScoreImage.sprite = _firstPlayerScoreSprites[_firstPlayerScore];
         _secondPlayerScoreImage.sprite = _secondPlayerScoreSprites[_secondPlayerScore];
     }
 
     public void AddPointForFirstPlayer()
     {
+        Time.timeScale = 0f;
         _firstPlayerScore++;
+        PlayerPrefs.SetInt("BlackPlayerScore", _firstPlayerScore);
         _firstPlayerScoreImage.sprite = _firstPlayerScoreSprites[_firstPlayerScore];
         _playerDiedImage.gameObject.SetActive(true);
         _playerDiedImage.sprite = _whitePlayerDiedSprite;
@@ -51,7 +67,9 @@ public class UiController : MonoBehaviour
 
     public void AddPointForSecondPlayer()
     {
+        Time.timeScale = 0f;
         _secondPlayerScore++;
+        PlayerPrefs.SetInt("WhitePlayerScore", _secondPlayerScore);
         _secondPlayerScoreImage.sprite = _secondPlayerScoreSprites[_secondPlayerScore];
         _playerDiedImage.gameObject.SetActive(true);
         _playerDiedImage.sprite = _blackPlayerDiedSprite;

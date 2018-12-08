@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: WhiteAnimator
+  m_Name: BlackAnimator
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: WalkTrigger
@@ -189,7 +189,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: WhiteWalk
+  m_Name: BlackWalk
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -204,7 +204,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b7be4639002c3e2448355196123fc9fc, type: 2}
+  m_Motion: {fileID: 7400000, guid: 39fb1550a22383543907f60ebfe7aaee, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -231,7 +231,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 713c372c90ae72e41b4283cd86c29a0a, type: 2}
+  m_Motion: {fileID: 7400000, guid: d6e3f3230fb4d534fa0afd2d7e38bdf8, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -258,7 +258,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ddfa139d6751c644593d80cf75ddc897, type: 2}
+  m_Motion: {fileID: 7400000, guid: 162629a5a4fb3fe438cdc4010c8ad372, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
