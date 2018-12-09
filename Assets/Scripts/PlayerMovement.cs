@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
 	public AudioSource attackSound;
 	//public AudioSource stepsSound;
 	
+	public float GravityScaleWhileJumpAttack = 1000;
+	
 	private void Start()
 	{
       
@@ -145,7 +147,7 @@ public class PlayerMovement : MonoBehaviour
                     WhooshDisplay();
 
                     _animationsController.PlayAttackAnimation();
-                    rb.gravityScale = 1000;
+                    rb.gravityScale = GravityScaleWhileJumpAttack;
 					attackSound.Play();
 					/*Collider2D[] enemyToDamage = Physics2D.OverlapBoxAll(attackPos.position,
 						new Vector2(attackRangeX, attackRangeY), 0, whoIsEnemy);*/
@@ -204,7 +206,7 @@ public class PlayerMovement : MonoBehaviour
                    WhooshDisplay();
 
                     _animationsController.PlayAttackAnimation();
-                    rb.gravityScale = 1000;
+                    rb.gravityScale = GravityScaleWhileJumpAttack;
 					attackSound.Play();
 					/*Collider2D[] enemyToDamage = Physics2D.OverlapBoxAll(attackPos.position,
 						new Vector2(attackRangeX, attackRangeY), 0, whoIsEnemy);*/

@@ -24,7 +24,7 @@ public class PlayerController2D : MonoBehaviour
 	private Rigidbody2D m_Rigidbody2D;
 	public bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
-	public int health;
+	//public int health;
 
 
 	[Header("Events")]
