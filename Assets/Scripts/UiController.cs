@@ -114,7 +114,7 @@ public class UiController : MonoBehaviour
         audioStartedPlaying = true;
         SetScoresToZero();
         _playerWinsImage.gameObject.SetActive(true);
-        _playerDiedImage.sprite = _blackPlayerWinsSprite;
+        _playerWinsImage.sprite = _blackPlayerWinsSprite;
         
     }
 
@@ -124,7 +124,7 @@ public class UiController : MonoBehaviour
         audioStartedPlaying = true;
         SetScoresToZero();
         _playerWinsImage.gameObject.SetActive(true);
-        _playerDiedImage.sprite = _whitePlayerWinsSprite;
+        _playerWinsImage.sprite = _whitePlayerWinsSprite;
         
     }
 
