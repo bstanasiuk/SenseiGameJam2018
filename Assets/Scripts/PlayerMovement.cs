@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 	public AudioSource attackSound;
 	//public AudioSource stepsSound;
 	
-	public float GravityScaleWhileJumpAttack = 1000;
+	public float GravityScaleWhileJumpAttack = 300;
 	
 	private void Start()
 	{
