@@ -19,15 +19,17 @@ public class UiController : MonoBehaviour
     private int _secondPlayerScore;
     public static UiController Instance { get; private set; }
     private bool _alreadyScored = false;
+    public AudioSource nani;
 
     private void Awake()
     {
         Time.timeScale = 1f;
         InitializeSingletonInstance();
     }
-
+    
     private void Start()
     {
+       // SetScoresToZero();
         LoadScores();
     }
 
@@ -89,18 +91,24 @@ public class UiController : MonoBehaviour
 
     private void BlackPlayerWins()
     {
+        nani.Play();
+       
         SetScoresToZero();
         _playerWinsImage.gameObject.SetActive(true);
         _playerDiedImage.sprite = _blackPlayerWinsSprite;
-        Invoke("LoadStartScene", 0.5f);
+        Invoke("LoadStartScene", 6f);
+        
     }
 
     private void WhitePlayerWins()
     {
+        nani.Play();
+        
         SetScoresToZero();
         _playerWinsImage.gameObject.SetActive(true);
         _playerDiedImage.sprite = _whitePlayerWinsSprite;
-        Invoke("LoadStartScene", 0.5f);
+        Invoke("LoadStartScene", 6f);
+        
     }
 
     private void LoadStartScene()
