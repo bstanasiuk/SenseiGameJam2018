@@ -919,7 +919,6 @@ MonoBehaviour:
   landingSound: {fileID: 82076006808330878}
   m_Grounded: 0
   m_FacingRight: 1
-  health: 1
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -950,6 +949,7 @@ MonoBehaviour:
   lewyWhoosh: {fileID: 1117357453882598}
   prawyWhoosh: {fileID: 1993494750222036}
   attackSound: {fileID: 82304604010359232}
+  GravityScaleWhileJumpAttack: 300
 --- !u!212 &212024425355752644
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -984,7 +984,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 700a4da2ef1b01e4384f6341b56343a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
