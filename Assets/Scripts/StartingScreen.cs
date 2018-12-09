@@ -4,8 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class StartingScreen : MonoBehaviour {
-	
-	void Update () 
+    private void Awake()
+    {
+        PlayerPrefs.SetFloat("BlackPlayerScore", 0);
+        PlayerPrefs.SetFloat("WhitePlayerScore", 0);
+    }
+
+    void Update () 
 	{
 		if (Input.anyKeyDown)
 		{
