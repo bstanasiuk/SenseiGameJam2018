@@ -120,17 +120,27 @@ MonoBehaviour:
   _backgroundPiecePrefab: {fileID: 224531282352532556, guid: d9005eed2a131434f964f4fc7831bed7,
     type: 2}
   _changeTime: 3
-  _chessBackgroundProbability: 0.25
+  _chessBackgroundProbability: 0.1
   _possibleBackground:
   - {fileID: 21300000, guid: 5d41c1f2e2686d84f918a5231afea823, type: 3}
   - {fileID: 21300000, guid: 28a90a9b9316fb84db60adb28ce4c03c, type: 3}
   - {fileID: 21300000, guid: db13e99f541eb0b4c813aa6f39b985e1, type: 3}
   - {fileID: 21300000, guid: 7447ba81dbb25604492d99bc95c62cf4, type: 3}
+  - {fileID: 21300000, guid: 3a9f99d515202b94fb5cc9113d6b1694, type: 3}
+  - {fileID: 21300000, guid: cdf708738027b0b4c88be9fb796858d1, type: 3}
+  - {fileID: 21300000, guid: 55c3be8414bd57c4aaca4dd94ea56075, type: 3}
+  - {fileID: 21300000, guid: 78453f2e2f89da7438ba2e315cf34518, type: 3}
+  - {fileID: 21300000, guid: 88d22978ed125c34a8c956d067ae99d9, type: 3}
   _reverseBackground:
   - {fileID: 21300000, guid: 6b4643ead172c534f86071c3b036727a, type: 3}
   - {fileID: 21300000, guid: 952e9c8403943194482f89b7ad8c6c9d, type: 3}
   - {fileID: 21300000, guid: b301998921d4fa44c82e041483a83873, type: 3}
   - {fileID: 21300000, guid: 72c299526de643345ae2dd717b7dc75c, type: 3}
+  - {fileID: 21300000, guid: 7b3e31bf786f6604b869587e89ee5341, type: 3}
+  - {fileID: 21300000, guid: 5e7671d60ef954f41b60709a06ba0bf1, type: 3}
+  - {fileID: 21300000, guid: f1e486b3776c75b44a5e6dc08c254fbc, type: 3}
+  - {fileID: 21300000, guid: 8780e7439ca33244f8102c1bce517014, type: 3}
+  - {fileID: 21300000, guid: 1daa70e077dabee49a9a9a09aa183485, type: 3}
   _reverseBackgroundProbability: 0.3
   _whiteSprite: {fileID: 21300000, guid: 161cd4e67ad736140962d57edd8427a1, type: 3}
   _chessboardPiecesParent: {fileID: 224724504319669388}
