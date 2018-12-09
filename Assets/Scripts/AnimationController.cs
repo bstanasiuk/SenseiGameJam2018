@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimationController : MonoBehaviour {
-
-    [SerializeField] private bool _isBlack = false;
-    private Animator _playerAnimator;
+public class AnimationController : MonoBehaviour
+{
+    [SerializeField] private bool _isBlack;
 
     private Vector2 _lastPosition;
-    
-    public AudioSource hitSound;
+    private Animator _playerAnimator;
     public GameObject blood;
+
+    public AudioSource hitSound;
 
     private void Awake()
     {
@@ -20,18 +18,14 @@ public class AnimationController : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        Vector2 currectPosition = transform.parent.position;
-        //if (currectPosition != _lastPosition)
+        var playerMovement = transform.parent.GetComponent<PlayerMovement>();
+        var playerController2D = playerMovement.controller;
+        _playerAnimator.SetBool("Jump", !playerController2D.m_Grounded);
         var velocity = transform.parent.GetComponent<Rigidbody2D>().velocity;
-        if (Math.Abs(velocity.x) > 0.01)
-        {
+        if (Math.Abs(velocity.x) > 0.01 && playerController2D.m_Grounded)
             _playerAnimator.SetTrigger("WalkTrigger");
-        }
         else
-        {
             _playerAnimator.SetTrigger("IdleTrigger");
-        }
-        _lastPosition = currectPosition;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -41,14 +35,12 @@ public class AnimationController : MonoBehaviour {
             hitSound.Play();
             other.GetComponentInChildren<AnimationController>().BloodDisplay();
             UiController.Instance.AddPointForSecondPlayer();
-            
         }
         else if (_isBlack && other.gameObject.tag.Equals("WhitePlayer"))
         {
             hitSound.Play();
             other.GetComponentInChildren<AnimationController>().BloodDisplay();
             UiController.Instance.AddPointForFirstPlayer();
-            
         }
     }
 
