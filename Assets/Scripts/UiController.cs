@@ -60,7 +60,6 @@ public class UiController : MonoBehaviour
     public void AddPointForFirstPlayer()
     {
         if (_alreadyScored) return;
-        Invoke("DelayedStopTime", 0.3f);
         _firstPlayerScore++;
         PlayerPrefs.SetInt("BlackPlayerScore", _firstPlayerScore);
         _firstPlayerScoreImage.sprite = _firstPlayerScoreSprites[_firstPlayerScore];
@@ -68,15 +67,20 @@ public class UiController : MonoBehaviour
         _playerDiedImage.sprite = _whitePlayerDiedSprite;
         _alreadyScored = true;
         if (_firstPlayerScore >= 3)
+        {
+            Invoke("DelayedStopTimeAfterWin", 0.5f);
             BlackPlayerWins();
+        }
         else
+        {
+            Invoke("DelayedStopTimeAfterKill", 0.3f);
             Invoke("RestartLevel", 0.5f);
+        }
     }
 
     public void AddPointForSecondPlayer()
     {
         if (_alreadyScored) return;
-        Invoke("DelayedStopTime", 0.3f);
         _secondPlayerScore++;
         PlayerPrefs.SetInt("WhitePlayerScore", _secondPlayerScore);
         _secondPlayerScoreImage.sprite = _secondPlayerScoreSprites[_secondPlayerScore];
@@ -84,9 +88,15 @@ public class UiController : MonoBehaviour
         _playerDiedImage.sprite = _blackPlayerDiedSprite;
         _alreadyScored = true;
         if (_secondPlayerScore >= 3)
+        {
+            Invoke("DelayedStopTimeAfterWin", 0.5f);
             WhitePlayerWins();
+        }
         else
+        {
+            Invoke("DelayedStopTimeAfterKill", 0.3f);
             Invoke("RestartLevel", 0.5f);
+        }
     }
 
     private void BlackPlayerWins()
@@ -116,9 +126,14 @@ public class UiController : MonoBehaviour
         SceneManager.LoadScene("StartScene");
     }
 
-    private void DelayedStopTime()
+    private void DelayedStopTimeAfterKill()
     {
         Time.timeScale = 0.25f;
+    }
+
+    private void DelayedStopTimeAfterWin()
+    {
+        Time.timeScale = 0f;
     }
 
     private void RestartLevel()
