@@ -19,6 +19,7 @@ public class UiController : MonoBehaviour
     private int _secondPlayerScore;
     public static UiController Instance { get; private set; }
     private bool _alreadyScored = false;
+    private bool audioStartedPlaying = false;
     public AudioSource nani;
 
     private void Awake()
@@ -31,6 +32,14 @@ public class UiController : MonoBehaviour
     {
        // SetScoresToZero();
         LoadScores();
+    }
+
+    private void Update()
+    {
+        if (!nani.isPlaying && audioStartedPlaying)
+        {
+            LoadStartScene();
+        }
     }
 
     private void InitializeSingletonInstance()
@@ -102,22 +111,20 @@ public class UiController : MonoBehaviour
     private void BlackPlayerWins()
     {
         nani.Play();
-       
+        audioStartedPlaying = true;
         SetScoresToZero();
         _playerWinsImage.gameObject.SetActive(true);
         _playerDiedImage.sprite = _blackPlayerWinsSprite;
-        Invoke("LoadStartScene", 6f);
         
     }
 
     private void WhitePlayerWins()
     {
         nani.Play();
-        
+        audioStartedPlaying = true;
         SetScoresToZero();
         _playerWinsImage.gameObject.SetActive(true);
         _playerDiedImage.sprite = _whitePlayerWinsSprite;
-        Invoke("LoadStartScene", 6f);
         
     }
 
