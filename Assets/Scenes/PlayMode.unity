@@ -670,6 +670,11 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114228939807823734, guid: d2007d089abc050428323d39be441c52,
+        type: 2}
+      propertyPath: GravityScaleWhileJumpAttack
+      value: 300
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2007d089abc050428323d39be441c52, type: 2}
   m_IsPrefabAsset: 0
@@ -866,6 +871,19 @@ Prefab:
     - target: {fileID: 4611309956479794, guid: 54fb7e49bc7237945a7e123e77bd427e, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4611309956479794, guid: 54fb7e49bc7237945a7e123e77bd427e, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4611309956479794, guid: 54fb7e49bc7237945a7e123e77bd427e, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114831737387191762, guid: 54fb7e49bc7237945a7e123e77bd427e,
+        type: 2}
+      propertyPath: GravityScaleWhileJumpAttack
+      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54fb7e49bc7237945a7e123e77bd427e, type: 2}
