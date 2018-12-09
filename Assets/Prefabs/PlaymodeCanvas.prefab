@@ -141,7 +141,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f1e486b3776c75b44a5e6dc08c254fbc, type: 3}
   - {fileID: 21300000, guid: 8780e7439ca33244f8102c1bce517014, type: 3}
   - {fileID: 21300000, guid: 1daa70e077dabee49a9a9a09aa183485, type: 3}
-  _reverseBackgroundProbability: 0.3
+  _reverseBackgroundProbability: 0.15
   _whiteSprite: {fileID: 21300000, guid: 161cd4e67ad736140962d57edd8427a1, type: 3}
   _chessboardPiecesParent: {fileID: 224724504319669388}
 --- !u!114 &114668675196260850
