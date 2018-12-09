@@ -182,3 +182,4 @@ MonoBehaviour:
   transformB: {fileID: 4104787230240282}
   childTransform: {fileID: 4270694374723430}
   speed: 1
+  fireDelay: 3
